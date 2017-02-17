@@ -1,4 +1,4 @@
-^title Welcome
+^title Добро пожаловать!
 
 This may be the beginning of a grand adventure. Programming languages encompass
 a huge space to explore, play in, and perhaps carve out your own territory where
