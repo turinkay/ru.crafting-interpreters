@@ -1,66 +1,68 @@
-^title Introduction
-^part Welcome
+^title Введение
+^part Добро пожаловать
 
-> Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.”
+> Сказки – больше, чем правда, не потому, что в них рассказывается о существовании драконов, а потому, что они говорят нам: драконов можно победить.”
 >
-> <cite>Neil Gaiman</cite>
+> <cite>Нил Гейман</cite>
 
-I'm really excited we're going on this journey together. This is a book on
-implementing interpreters for programming languages. It's also a book on how to
-design a language worth implementing. It's the book I wished I had when I first
-started getting into languages, and it's the book I've been writing in my <span
-name="head">head</span> for nearly a decade.
+Я очень рад, что мы пройдем этот путь вместе. Эта книга о реализации 
+интерпретаторов для языков программирования. Также она о том, как спроектировать
+язык, достойный реализации. Мне бы хотелось, чтобы эта книга была у меня в то 
+время, когда я только начал погружение в языки, и я пишу её в своей <span
+name="head">голове</span> в течение почти десятка лет.
 
 <aside name="head">
 
-To my friends and family, sorry I've been so absent-minded!
+Мои друзья и семья, простите за то, что я был так погружен в собственные мысли!
 
 </aside>
 
-In these pages, we will walk step by step through two complete interpreters for
-a full-featured language. I assume this is your first foray into languages, so
-I'll cover each concept and line of code you need to build a complete, usable,
-fast language implementation.
+На этих страницах мы последовательно рассмотрим два полных интерпретатора для 
+полноценного языка. Полагаю, что это ваше первое погружение в языки, поэтому 
+постараюсь покрыть каждую концепцию и строчку кода, которые нужны вам чтобы 
+построить полную, практичную и быструю реализацию языка программирования.
 
-In order to cram two full implementations inside one book without it turning
-into a doorstop, this text is lighter on theory than others. As we build each
-piece of the system, I will introduce the history and concepts behind it. I'll
-try to get you familiar with the lingo so that if you ever find yourself in a
-<span name="party">cocktail party</span> full of PL (programming language)
-researchers, you'll fit in.
+Чтобы уместить две реализации в одну книгу и не сделать её такой большой, что ей
+можно было бы подпирать двери, текст содержит меньше теории, чем в другой 
+подобной литературе. По мере того как мы будем выстраивать части системы, я буду
+рассказывать истории и концепции, которые за ними стоят. Я постараюсь 
+познакомить вас с профессиональным жаргоном, так что если вы попадете на <span 
+name="party">коктейльную вечеринку</span>, полную исследователей ЯП (языков 
+программирования), то впишетесь в неё.
 
 <aside name="party">
 
-Strangely enough, a situation I have found myself in multiple times. You
-wouldn't believe how much some of them can drink.
+Довольно странно, но я оказывался в такой ситуации несколько раз. Вы не 
+поверите, сколько некоторые из них могут выпить.
 
 </aside>
 
-But we're mostly going to spend our brain juice getting the language up and
-running. This is not to say theory isn't important. Being able to reason
-precisely and <span name="formal">formally</span> about syntax and semantics is
-a vital skill when working on a language. But, personally, I learn best by
-doing. It's hard for me to wade through paragraphs full of abstract concepts and
-really absorb them. But if I've coded something, ran it, and debugged it, then I
-*get* it.
+Но мы в основном будем тратить наши мозговые ресурсы на то, чтобы язык 
+запустился и заработал. Это не значит, что теория не важна. Умение рассуждать 
+четко и <span name="formal">формально</span>  о синтаксисе и семантике – 
+несомненно важное умение при работе с языком. Но лично я изучаю что-либо гораздо
+лучше в процессе работы. Мне сложно пройти через множество параграфов, полных 
+абстрактных понятий, и действительно понять их. Только когда я что-то 
+запрограммировал, запустил и отладил, я могу сказать, что действительно 
+*понимаю* это.
 
 <aside name="formal">
 
-Static type systems in particular require rigorous formal reasoning. Hacking on
-a type system has the same feel as proving a theorem in mathematics.
+Статические системы типов особенно требуют строгого формального обсуждения. 
+Разработка системы типов схожа с доказательством теоремы в математике.
 
-It turns out this is no coincidence. In the early half of last century, Haskell
-Curry and William Alvin Howard showed that they are two sides of the same coin:
-[the Curry-Howard isomorphism][].
+Оказывается, это не случайно. В первой половине прошлого века Хаскелл Карри и 
+Уильям Алвин Говард разработали доказательство того, что это стороны одной 
+монеты: [изоморфизм Карри-Говарда][the curry-howard isomorphism].
 
-[the curry-howard isomorphism]: https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence
+[the curry-howard isomorphism]: https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B8%D0%B5_%D0%9A%D0%B0%D1%80%D1%80%D0%B8_%E2%80%94_%D0%A5%D0%BE%D0%B2%D0%B0%D1%80%D0%B4%D0%B0
 
 </aside>
 
-That's my goal for you. I want you to come away with a solid intuition of how a
-real language lives and breathes. My hope is that when you read other, more
-theoretical books later, the concepts there will firmly stick in your mind,
-adhered to this tangible substrate.
+Это то, что я хочу донести до вас. Я хочу, чтобы вы получили твердую интуицию в
+том, как в действительности язык живет и дышит. Надеюсь, что позже вы прочтете и
+другие, более теоретические книги, когда все концепции будут крепко держаться в 
+вашем сознании, закрепленные на полученной здесь основе.
 
 ## Why Learn This Stuff?
 
