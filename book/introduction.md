@@ -64,19 +64,19 @@ name="party">коктейльную вечеринку</span>, полную ис
 другие, более теоретические книги, когда все концепции будут крепко держаться в 
 вашем сознании, закрепленные на полученной здесь основе.
 
-## Why Learn This Stuff?
+## Для чего это вообще нужно изучать?
 
-Every introduction to every language book seems to have this section. I don't
-know what it is about programming languages that causes such existential doubt.
-I don't think ornithology books worry about justifying their existence. They
-assume the reader loves birds and get moving.
+Каждое введение в каждой подобной книге имеет такой раздел. Я не знаю, что не 
+так с языками программирования, что они вызывают такие экзистенциальные 
+сомнения. Не думаю, что книги по орнитологии волнуются об оправдании своего 
+существования. Они полагают, что читатель любит птиц и стремится к развитию.
 
-But programming languages are a little different. I suppose it is true that the
-odds of any of us creating a broadly successful general-purpose programming
-language are slim. The designers of the world's widely-used languages could fit
-in a Volkswagen bus, even without putting the pop top camper up. If joining that
-elite group was the *only* reason to learn languages, it would be hard to
-justify. Fortunately, it isn't.
+Но с языками программирования несколько иная ситуация. Полагаю, шансы любого из
+нас на создание успешного языка программирования общего назначения невелики. 
+Разработчики языков, широко применяемых во всем мире, могут вместиться в автобус
+Фольксваген, даже не поднимая крышу-палатку. Если бы присоединение к этой 
+элитной группе было *единственной* причиной изучать языки, это занятие 
+действительно было бы сложно оправдать. К счастью, это не так.
 
 ### Little languages are everywhere
 
