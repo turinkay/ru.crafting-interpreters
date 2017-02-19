@@ -78,32 +78,34 @@ name="party">коктейльную вечеринку</span>, полную ис
 элитной группе было *единственной* причиной изучать языки, это занятие 
 действительно было бы сложно оправдать. К счастью, это не так.
 
-### Little languages are everywhere
+### Маленькие языки повсюду
 
-For every successful general-purpose language out there, there are a thousand
-successful niche ones. We used to call them "little languages", but inflation in
-the jargon economy led today to the name "domain-specific languages". These are
-pidgins tailor-built to a specific task. Things like application scripting
-languages, template engines, markup formats, and configuration files.
+На каждый успешный язык общего назначения приходятся тысячи успешных нишевых
+языков. Раньше мы называли их "маленькие языки", но развитие жаргона приводит
+нас к названию "предметно-ориентированные языки" (domain-specific languages).
+Это пиджины (промежуточные языки) специально разработанные для конкретных задач.
+Например, это могут быть сценарии для приложений, движки шаблонов, форматы
+разметки и конфигурационные файлы.
 
 <span name="little"></span>
 <img src="image/introduction/little-languages.png" alt="A random selection of little languages." />
 
 <aside name="little">
 
-A random selection of some little languages you might run into.
+Случайная выборка некоторых маленьких языков, с которыми вы можете столкнуться.
 
 </aside>
 
-Almost every large software project needs a handful of these. When you can, it's
-good to reuse an existing one instead of rolling your own. Once you factor in
-documentation, debuggers, editor support, syntax highlighting, and all of the
-other trappings, doing it yourself becomes a tall order.
+Практически каждый крупный проект разработки ПО нуждается в нескольких из них.
+Когда это возможно, лучше использовать один из существующих, чем создавать свой.
+Как только вы задумываетесь о документации, отладчике, поддержке редактором,
+подсветке синтаксиса и прочей атрибутике, создание всего этого самостоятельно
+превращается в непростую задачу.
 
-But there's still a good chance you'll find yourself needing to whip up a parser
-or something when there isn't an existing library that fits your needs. Even
-when there *is* one to reuse, you'll inevitably end up needing to debug and
-maintain it and poke around in its guts.
+Но все еще остается довольно большой шанс того, что вам понадобится состряпать
+парсер чего-то, в то время как под рукой не окажется библиотеки, удовлетворяющей
+вашим нуждам. А если и *окажется*, вам неизбежно понадобится её отлаживать и
+поддерживать, а также ковыряться в её внутренностях.
 
 ### Languages are great exercise
 
