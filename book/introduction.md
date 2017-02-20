@@ -107,23 +107,24 @@ name="party">коктейльную вечеринку</span>, полную ис
 вашим нуждам. А если и *окажется*, вам неизбежно понадобится её отлаживать и
 поддерживать, а также ковыряться в её внутренностях.
 
-### Languages are great exercise
+### Языки - это проекрасное упражнение
 
-Long distance runners sometimes train with weights strapped to their ankles or
-at high altitudes where the atmosphere is thin. When they later unburden
-themselves, the new relative ease of light limbs and oxygen-rich air enables
-them to run farther and faster.
+Бегуны на длинные дистанции иногда тренируются с весами, привязанными к ногам,
+или на таких высотах, где воздух очень разрежён. Когда позже они освобождаются
+от этого, относительная легкость в конечностях и богатый кислородом воздух
+позволяют им бежать дальше и быстрее.
 
-Implementing a language is a real test of programming skill. The code is complex
-and performance critical. You must master recursion, dynamic arrays, trees,
-graphs, and hash tables. You probably use hash tables at least in your
-day-to-day programming, but how well do you *really* understand them? Well,
-after we've crafted our own from scratch, I guarantee you will.
+Разработка языка - это настоящий тест для ваших навыков программирования. Код
+сложен, а производительность критична. Необходимо владеть рекурсией,
+динамическими массивами, деревьями, графами и хэш-таблицами. Вы, вероятно,
+будете использовать хэш-таблицы в программировании каждый день, но будете ли вы
+*действительно* понимать их? Что ж, после того, как мы создадим их с нуля, я
+гарантирую, что будете.
 
-While I intend to show you that a programming language isn't as daunting as you
-might believe, it is still a challenge. Rise to it, and you'll come away a
-stronger programmer, and smarter about how you use data structures and
-algorithms in your day job.
+Хоть я и хочу показать, что написание языка программирования - это не так
+страшно, это все еще испытание. Преодолев его вы станете более сильным
+программистом, и будете умнее в том, как использовать структуры данных и
+алгоритмы в своей повседневной работе.
 
 ### One more reason
 
