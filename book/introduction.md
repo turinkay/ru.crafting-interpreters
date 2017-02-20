@@ -126,45 +126,48 @@ name="party">коктейльную вечеринку</span>, полную ис
 программистом, и будете умнее в том, как использовать структуры данных и
 алгоритмы в своей повседневной работе.
 
-### One more reason
+### Еще одна причина
 
-This last reason is hard for me to admit, because it's so close to my heart.
-Ever since I learned to program as a kid, I felt there was something magical
-about languages. When I first tapped out BASIC programs one key at a time I
-couldn't conceive how BASIC *itself* was made.
+Последнюю причину мне тяжело признать, потому что я принимаю её близко к сердцу.
+Во время обучения программированию в детстве, я чувствовал что-то волшебное в
+языках. Впервые набирая свои программы на BASIC клавишу за клавишей, я не
+представлял, как *сам* BASIC был устроен.
 
-Later, the mixture of awe and terror my college friends used to refer to their
-compilers class was enough to convince me language hackers were a different
-breed of human. Some sort of wizards granted privileged access to arcane arts.
+Позже, смешение трепета и страха, которое испытывали мои друзья в коллежде по
+отношению к курсу компиляторов, убедило меня, что разработчики языков - это
+другой вид людей. Какие-то волшебники, имеющие доступ к мистическим искусствам.
 
-It's a charming <span name="image">image</span>, but it has a darker side. *I*
-didn't feel like a wizard, so I was left thinking I lacked some in-born quality
-necessary to join the cabal. Though I've been fascinated by languages ever since
-I doodled made up keywords in my school notebook, it took me decades to muster
-the courage to try to really learn them. That "magical" quality, that sense of
-exclusivity, excluded *me*.
+Это очаровательный <span name="image">образ</span>, но у него есть и темная
+сторона. *Я* не чувствовал себя волшебником, потому думал о том, что упустил
+какое-то врожденное качество, которое мешало мне присоединиться к их заговору.
+Так что я был очарован языками с тех пор как набросал несколько ключевых слов в
+школьной тетради, и у меня заняло десятки лет, чтобы набраться смелости и
+попробовать действительно изучить их. Это "магическое" качество, чувство
+особенности, отталкивало *меня*.
 
 <aside name="image">
 
-And one its practitioners don't hesitate to play up. Two of the seminal texts on
-programming languages feature a [dragon][] and a [wizard][] on their cover.
+Его приверженцы и не планируют его развенчать. Два фундаментальных текста о
+языках программирования содержат [дракона][dragon] и [волшебника][wizard] на
+обложках.
 
 [dragon]: https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools
 [wizard]: https://mitpress.mit.edu/sicp/full-text/book/book.html
 
 </aside>
 
-When I did finally start cobbling together my own little interpreters, I quickly
-learned that, of course, there is no magic at all. It's just code, and the
-people who hack on languages are just people.
+Когда я в конце концов начал сколачивать свои собственные маленькие
+интерпретаторы, я быстро понял, что, разумеется, там вообще нет никакой магии.
+Это просто код, и люди, которые пишут языки, просто люди.
 
-There *are* a few techniques you don't often encounter outside of languages, and
-some parts are a little difficult. But not more difficult than other obstacles
-you've overcome. My hope is that if you've felt intimidated by languages, and
-this book helps you overcome that fear, maybe I'll leave you just a tiny bit
-braver than you were before.
+*Есть* некоторые техники, с которыми вы не очень часто сталкиваетесь вне мира
+написания языков, и некоторые из них довольно сложные. Но не сложнее, чем другие
+препядствия, которые вы преодолеваете. Надеюсь. что эта книга позволит вам
+перебороть этот страх, и, возможно, вы уйдете отсюда более храбрыми, чем были до
+этого.
 
-And, who knows, maybe you *will* make the next great language. Someone has to.
+И, кто знает, может вы *создадите* следующий великий язык. Кто-то должен это
+сделать.
 
 ## How the Book is Organized
 
