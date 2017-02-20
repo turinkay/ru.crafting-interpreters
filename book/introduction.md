@@ -169,25 +169,24 @@ name="party">коктейльную вечеринку</span>, полную ис
 И, кто знает, может вы *создадите* следующий великий язык. Кто-то должен это
 сделать.
 
-## How the Book is Organized
+## Как эта книга устроена
 
-This book is broken into three parts. You're reading the first one now. It's a
-couple of chapters to get you oriented, teach you some of the lingo language
-hackers use, and introduce you to Lox, the language we'll be implementing.
+Эта книга разделена на три части. Сейчас вы читаете первую из них. Она 
+предназначена, чтобы сориентировать тебя, научить некоторому жаргону, который
+используют разработчики языков, и представить тебе Lox, язык, который мы будем
+реализовывать.
 
-Each of the other two parts builds one complete Lox interpreter. Within those
-parts, each chapter is structured the same. Every one takes a single language
-feature, teaches you the concepts behind it, and walks through an implementation
-of it.
+Какждая из двух частей создает свой полный интерпретатор Lox. В этих частях все
+главы устроены одинаково. Каждая часть берет определенную фичу языка, обучает
+концептам, которые за ней лежат, и пробегает по её реализации.
 
-It took a good bit of trial and error on my part, but I managed to carve up the
-two interpreters into chapter-sized chunks so that each builds on the previous
-ones. From the very first chapter, you'll have a program you can run and play
-with. With each passing chapter, it grows increasingly full-featured until you
-eventually have a complete language.
+Методом проб и ошибок у меня удалось разделить оба интерпретатора на куски по
+главам так, чтобы каждый следующий основывался на предыдущем. Начиная с самой
+первой главы, у вас будет программа, которую можно запустить и попробовать. С
+каждой следующей главой она будет становиться все более полнофункциональной,
+пока вы не получите в конце концов полноценный язык.
 
-Aside from copious, scintillating English prose, chapters have a few other
-delightful facets:
+Помимо богатой и остроумной прозы, главы имеют следующие восхитительные ставки:
 
 ### The code
 
