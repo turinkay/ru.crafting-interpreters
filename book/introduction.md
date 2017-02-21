@@ -246,14 +246,14 @@ Another* Compiler-Compiler (еще один компилятор компиля�
 полагаю, вы сможеет сбацать makefile или проект в вашей IDE на выбор, чтобы
 запустить код.
 
-### Snippets
+### Врезки
 
-Since the book contains literally every line of code needed for the
-implementations, the snippets are quite precise. Also, because I try to keep the
-program in a runnable state even when it's half-implemented, sometimes we add
-temporary code that is replaced in later snippets.
+Так как книга содержит буквально каждую строчку, необходимую для реализации,
+все врезки предельно точны. Кроме того, так как я старался сохранять даже
+наполовину написанную программу в рабочем состоянии, иногда мы добавляем
+временный код, который будет заменен в последующих врезках.
 
-A snippet with all the bells and whistles looks like this:
+Врезка со всеми примочками выгляди так:
 
 <div class="codehilite"><pre class="insert-before"><span></span>      <span class="k">default</span><span class="o">:</span>
 </pre><div class="source-file"><em>lox/Scanner.java</em><br>
@@ -267,24 +267,25 @@ replace 1 line</div>
 </pre><pre class="insert-after"><span></span>        <span class="k">break</span><span class="o">;</span>
 </pre></div>
 
-In the center, you have the new code being added in this snippet. It may have a
-few faded out lines above or below to show you where to insert it in the
-existing code. There is also a little blurb telling you which file and where in
-the file it goes. If it says "replace _ lines", there was some previous code
-between the faded lines that you need to remove and replace with this snippet.
+В цетре располагается новый код, добавляемый в этой врезке. Сверху и снизу могут
+быть полупрозрачные строки, которые показывают, куда необходимо вставить врезку
+в существующем коде. Также есть небольшая подсказка, которая подсказывает имя и
+место в файле. Если она говорит "replace _ lines", значит до этого между
+полупрозрачными строками был предыдущий код, который вы должны заменить на эту
+врезку.
 
-### Asides
+### Заметки на полях
 
-<span name="joke">Asides</span> contain biographical sketches, historical
-background, references to related topics, and suggestions of other areas to
-explore. There's nothing that you *need* to know in them to understand later
-parts of the book, so you can skip them if you want. I won't judge you, but I
-might be a little sad.
+<span name="joke">Заметки на полях</span> содержат биографические фрагменты,
+историческую справку, ссылки на связанные темы и рекомендации других областей
+исследования. В них нет ничего такого, что вам *нужно* знать, чтобы понимать
+последующие части книги, так что можете пропускать их, если хотите. Я не буду
+осуждать вас, но могу немного расстроиться.
 
 <aside name="joke">
 
-Well, some asides do, at least. Most of them are just dumb jokes and amateurish
-drawings.
+Что ж, по крайней мере, некоторые. Большинство из них это просто глупые шутки
+и любительские рисунки.
 
 </aside>
 
