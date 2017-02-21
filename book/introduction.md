@@ -186,62 +186,65 @@ name="party">коктейльную вечеринку</span>, полную ис
 каждой следующей главой она будет становиться все более полнофункциональной,
 пока вы не получите в конце концов полноценный язык.
 
-Помимо богатой и остроумной прозы, главы имеют следующие восхитительные ставки:
+Помимо богатой и остроумной прозы, главы имеют следующие восхитительные вставки:
 
-### The code
+### Код
 
-We're about *crafting* interpreters, so this book contains real code. Every
-single line of code needed is included, and each snippet tells you where to
-insert it in your ever-growing implementation.
+Мы говорим о создании интерпретаторов *своими руками*, так что в этой книге есть
+настоящий код. Каждая строка необходимая строка обязательно приведена и каждый
+отрывок расскажет вам, куда добавить её в вашу постоянно растущую реализацию.
 
-Many other language books and language implementations use tools like [Lex][]
-and <span name="yacc">[Yacc][]</span>, "compiler-compilers" to automatically
-generate some of the source files for an implementation from some higher level
-description. There are pros and cons to tools like those, and strong
-opinions -- some might say religious convictions -- on both sides.
+Многие другие книги о языках и их реализации используют такие инструменты как
+[Lex][] и <span name="yacc">[Yacc][]</span>, "компиляторы компиляторов", чтобы
+автоматически генерировать некоторые исходные файлы реализации из некоторого
+высокоуровневого описания. Есть плюсы и минусы использования таких инструментов
+и сильные аргументы -- можно сказать, религиозные убеждения -- за и против.
 
 <aside name="yacc">
 
-Yacc is a tool that takes in a grammar file and produces a source file for a
-compiler, so it's sort of like a "compiler" that outputs a compiler, which is
-where we get the term "compiler-compiler".
+Yacc -- это инструмент, который принимает файл с грамматикой и создает исходные
+файлы для компилятора, то есть что-то вроде "компилятора", дающего на выходе
+компилятор. Мы будем называть это термином "компилятор компилятора".
 
-Yacc wasn't the first of its ilk, which is why it's named "Yacc" -- *Yet
-Another* Compiler-Compiler. A later similar tool is [Bison][], named as a pun on
-the pronunciation of Yacc like "yak".
+Yacc не первый в своем роде, и именно поэтому он называется "Yacc" -- *Yet
+Another* Compiler-Compiler (еще один компилятор компилятора). Более поздний
+сходный инструмент [Bison][], назван от игры слов в произножении Yacc как "як".
 
 ![A yak.](image/introduction/yak.png)
 
 [bison]: https://en.wikipedia.org/wiki/GNU_bison
 
-If you find all of these little self-references and puns charming and fun,
-you'll fit right in here. If not, well, maybe the language nerd sense of humor
-is an acquired taste.
+Если вы находите все эти отсылки и каламбур очаровательными и забавными, вы
+почувствуете себя здесь как дома. Если нет, что ж, чувство юмора у нердов
+наживное.
 
 </aside>
 
-We will abstain from using them here. I want to ensure there are no dark corners
-where magic and confusion can hide, so we'll write everything by hand. As you'll
-see, it's not as bad as it sounds and it means you really will understand each
-line of code and how both interpreters work.
+Мы будем воздерживаться от использования его здесь. Я стараюсь не оставить
+темных углов, где могут спрятаться магия и неоднозначность, так что мы будем
+писать все своими руками. Как увидите, это не так плохо, как звучит, и это
+значит, что вы действительно поймете каждую строчку кода и как оба
+интерпретатора работают.
 
 [lex]: https://en.wikipedia.org/wiki/Lex_(software)
 [yacc]: https://en.wikipedia.org/wiki/Yacc
 
-A book has different constraints from the "real world" and so the coding style
-here might not always reflect the best way to write maintainable production
-software. If I seem a little cavalier about, say, omitting `private` or
-declaring a global variable, understand I do so to keep the code easier on your
-eyes. The pages here aren't as wide as your IDE and every character counts.
+Код в книге имеет требования, отличные от "реального мира", так что стиль
+программирования здесь не всегда может отражать лучшее решение для написания
+поддерживаемого в продакшнене программного обеспечения. Если я выгляжу
+неряшливым, пропуская `private` или объявляя глобальные переменные, прошу
+понять, что я так делаю, чтобы сохранять код проще в ваших глазах. Страницы
+здесь не такие широкие, как в вашей IDE, и каждый символ на счету.
 
-Also, the code doesn't have many comments. That's because each handful of lines
-is surrounded by several paragraphs of honest-to-God prose explaining it. When
-you write a book to accompany your program, you are welcome to omit comments
-too. Otherwise, you should probably use `//` a little more than I do.
+К тому же код содержит не так много комментариев. Это потому что каждый набор
+строк окружен несколькими параграфами, которые, видит Бог, объясняют их. Когда
+вы будете писать целую книгу для сопровождения вашей программы, тоже можете
+опускать комментарии. В противном случае, вы должны вероятно использовать `//`
+немного чаще, чем это делаю я.
 
-What this book *doesn't* contain is the machinery needed to compile and run the
-code. I assume you can slap together a makefile or a project in your IDE of
-choice in order to get the code to run.
+Чего эта книга *не содержит*, так это механизмов компиляции и запуска кода. Я
+полагаю, вы сможеет сбацать makefile или проект в вашей IDE на выбор, чтобы
+запустить код.
 
 ### Snippets
 
