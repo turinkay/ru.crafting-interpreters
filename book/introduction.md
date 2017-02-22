@@ -289,17 +289,18 @@ replace 1 line</div>
 
 </aside>
 
-### Challenges
+### Задачи
 
-Each chapter ends with a few exercises. Unlike textbook problem sets which tend
-to rehash material you already covered, these are to help you learn *more* than
-what's in the chapter. They force you to step off the guided path and explore on
-your own. They will make you research other languages, figure out how to
-implement features or otherwise get you to strike out on your own.
+Каждая глава заканчивается несколькими упражнениями. В отличие от вопросов в
+учебниках, которые рассчитаны на повтор только что прочитанного материала, они
+нацелены на то, чтобы вы изучили *больше*, чем есть в главе. Они сподвигнут вас
+отойти от протоптанной тропы и исследовать самим. Для их решения может быть
+необходимо исследовать другие языки, понимать, как реализовать фичи языка или
+любым другим образом действовать самостоятельно. 
 
-Vanquish them and you'll come away with a broader understanding and possibly a
-few bumps and scrapes. Or skip them if you want to stay inside the comfy
-confines of the tour bus. It's your book.
+Преодолев их вы приобретете более широкое понимание и, возможно, синяки и
+царапины. Или вы можете пропустить их, если хотите оставаться в пределах
+комфортного туристического автобуса. Это ваша книга. 
 
 ### Design notes
 
