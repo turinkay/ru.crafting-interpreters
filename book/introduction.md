@@ -302,42 +302,43 @@ replace 1 line</div>
 царапины. Или вы можете пропустить их, если хотите оставаться в пределах
 комфортного туристического автобуса. Это ваша книга. 
 
-### Design notes
+### Рабочие заметки
 
-Most "programming language" books are strictly programming language
-*implementation* books. They rarely discuss how one might happen to *design* the
-language being implemented. Implementation is fun because it is so <span
-name="benchmark">precisely defined</span>. We programmers seem to have an
-affinity for things that are black and white, ones and zeroes.
+Большинство книг о языках программирования на самом деле явялются книгами о
+*реализации* языков программирования. Но в них редко обсуждается, как
+*спроектировать* язык, который позже будет реализован. Реализация - это
+весело, потому что она <span name="benchmark">точно определена</span>. Мы,
+программисты, видимо, слишком родны с вещами которые белые и черные, нули и
+единицы.
 
 <aside name="benchmark">
 
-I know a lot of language hackers whose careers are based on this. You slide a
-language spec under their door, wait a few months, and code and benchmark
-results come out.
+Я знаю много разработчиков языков, чья карьера основана на этом. Ты засовываешь
+спецификацию языка под их дверь, ждешь несколько месяцев, и получаешь код с
+тестами производительности на выходе.
 
 </aside>
 
-Personally, I think the world only needs so many implementations of <span
-name="fortran">FORTRAN 77</span>. At some point, you find yourself designing a
-*new* language. Once you start playing *that* game, then the softer, human side
-of the equation becomes paramount. Things like what features are easy to learn,
-how to balance innovation and familiarity, what syntax is more readable and to
-whom.
+Лично я думаю, что мир нуждается в большом количестве реализаций <span
+name="fortran">FORTRAN 77</span>. В определенный момент времени вы начинаете
+разрабатывать *новый* язык. Как только вы начинаете играть в *эту* игру,
+человеческие стороны уравнения становятся более значимыми. Такие вещи как
+легкость изучения, баланс инновации и консерватизма, какой синтаксис более
+читабелен и для кого.
 
 <aside name="fortran">
 
-Hopefully a language that doesn't hardcode assumptions about the width of a
-punched card into its grammar.
+Надеюсь, язык, в грамматике которого не будет заложена ширина перфокарты.
 
 </aside>
 
-All of that stuff profoundly affects the success of your new language. I want
-your language to succeed, so in some chapters I end with a "design note", a
-little essay on some corner of the human aspect of programming languages. I'm no
-expert on this -- I don't know if anyone really is -- so take these with a large
-pinch of salt. That should make them tastier food for thought, which is my main
-aim.
+Все это серьезно влияет на успех вашего нового языка. Я хочу, чтобы ваши языки
+были успешными, потому некоторые главы я заканчиваю "рабочими заметками",
+маленькими очерками о человеческом аспекте языков программирования. Я не эксперт
+в этом -- не уверен, что кто-то дейтствительно эксперт -- так что воспринимайте
+это с большой долей скепсиса. Это кроме прочего сделает их более вкусными, а это
+моя основная цель. (По-английски "принимать с большой долей скепсиса" звучит так
+же, как и "принимать с большой щепоткой соли" - прим. переводчика).
 
 ## The First Interpreter
 
