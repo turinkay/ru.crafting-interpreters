@@ -340,121 +340,124 @@ name="fortran">FORTRAN 77</span>. В определенный момент вр�
 моя основная цель. (По-английски "принимать с большой долей скепсиса" звучит так
 же, как и "принимать с большой щепоткой соли" - прим. переводчика).
 
-## The First Interpreter
+## Первый интерпретатор
 
-We'll write our first interpreter, jlox, in Java. The focus is on *concepts*.
-We'll write the simplest, cleanest code we can to correctly implement the
-semantics of the language. This will get us comfortable with the basic
-techniques and also hone our understanding of exactly how the language is
-supposed to behave.
+Мы напишем наш первый интерпретатор, под названием jlox, на Java, фокусируясь на
+*концепциях*. Чтобы реализовать семантику языка, мы напишем настолько простой и
+чистый код, который только сможем. Это познакомит нас ближе с основными
+техниками и принесет понимание, как именно язык должен себя вести.
 
-Java is a great language for this. It's high level enough that we don't get
-overwhelmed by fiddly implementation details, but it's still pretty explicit.
-Unlike scripting languages, there tends to be less magic under the hood, and
-you've got static types to see what data structures you're working with.
+Java прекрасно для этого додходит. Она достаточно выскокоуровневая, чтобы мы не
+заостряли внимание на мелких деталях реализации, но тем не мене достаточно
+явная. В отличие от скриптовых языков она старается держать меньше магии под
+капотом и имеет статические типы, позволяющие видеть, с какими структурами
+данных вы работаете.
 
-I also chose it specifically because it is an *object-oriented* language. That
-paradigm swept the programming world in the 90s and is now the dominant way of
-thinking for millions of programmers. Odds are good you're already used to
-organizing things into classes and methods, so we'll keep you in that comfort
-zone.
+Кроме того, я выбрал её именно потому, что она *объектно-ориентированная*. Эта
+парадигма захватила мир программирования в 90-ых и сейчас это наиболее
+распространенный способ мышления среди миллионов программистов. Большинство из
+вас так же организует вещи при помощи классов и методов, так что мы останемся в
+комфортной для вас зоне.
 
-While academic language folks sometimes look down on object-oriented languages,
-the reality is that they are widely used even for language work. GCC and LLVM
-are written in C++, as are most JavaScript virtual machines. Object-oriented
-languages are ubiquitous and the tools and compilers *for* a language are often
-written *in* the <span name="host">same language</span>.
+Хотя академические создатели языков иногда смотрят на объектно-ориентированные
+языки сверху вниз, реальность заключается в том, что они широко используются
+даже в сфере разработки языков. GCC и LLVM написаны на C++, как и большинство
+виртуальных машин JavaScript. Объектно-ориентированные языки вездесущи, а
+инструменты и компиляторы *для* языка часто написаны *на* <span name="host">том
+же языке</span>.
 
 <aside name="host">
 
-A compiler reads in files in one language and translates them to files in
-another language. You can implement a compiler in any language, including the
-same language it compiles, a process called **"self-hosting".**
+Компилятор читает файлы на одном языке и транслирует их в файлы на другом языке.
+Вы можете реализовать компилятор на любом языке, включая тот язык, который он
+компилирует. Это называется **"самодостаточость"** (self-hosting).
 
-You can't compile it using itself yet, but if you have another compiler for your
-language written in some other language, you use *that* one to compile your
-compiler once. Now you can use the compiled version of your own compiler to
-compile future versions of itself and you can discard the original one compiled
-from the other compiler. This is called **"bootstrapping"** from the image of
-pulling yourself up by your own bootstraps.
+Вы не можете скомпилировать такой компилятор при помощи него самого, но, если у
+вас есть другой компилятор вашего языка, написанный на каком-то другом языке, вы
+можете использовать *его*, чтобы скомпилировать ваш компилятор. Теперь вы можете
+использовать скомпилированную версию своего компилятора, чтобы компилировать его
+будущие версии, и вы можете выкинуть предыдущую, скомпилированную другим
+компилятором. Это называется **бутстраппинг** (bootstrapping). Такое название
+произошло от ситуации, когда вы тянете себя за петельки на своих ботинках.
 
-![Fact: This is the primary mode of transportation of the American cowboy.](image/introduction/bootstrap.png)
+![Факт: Это основной способ перемещения Американских ковбоев.](image/introduction/bootstrap.png)
 
 </aside>
 
-And, finally, Java is hugely popular. That means there's a good chance you
-already know it, so there's less for you to learn to get going in the book. If
-you aren't that familiar with Java, don't freak out. I try to stick to a fairly
-minimal subset of it. I use the diamond operator from Java 7 to makes things a
-little more terse, but that's about it as far as "advanced" features go. If you
-know another object-oriented language like C# or C++, you can probably muddle
-through fine.
+И, наконец, Java очень популярна. А значит есть большая вероятность, что вы уже
+её знаете, так что вам нужно будет меньше учить, чтобы читать эту книгу. Если вы
+не знакомы с Java, не переживайте. Я попробую использовать как можно меньшее её
+подмножество. Я использую оператор diamond из Java 7, чтобы сделать код более
+лаконичным, но это все, что касается "продвинутых" возможностей языка. Если вы
+знаете другой объектно-ориентированный язык, например C# или C++, вы должны
+разобраться.
 
-By the end of part II, we'll have a simple, readable implementation. What we
-won't have is a *fast* one. It also leans on the Java virtual machine's runtime
-facilities, but we want to learn how Java *itself* implements those things.
+К концу части II, мы получим простую, читаемую реализацию. Чего у нас не будет,
+так это *быстрой* реализации. Это в том числе из-за особенностей виртуальной
+машины Java, но мы хочим изучить, как Java *сама* реализует эти вещи.
 
-## The Second Interpreter
+## Второй интерпретатор
 
-So in the next part, we'll start all over again, but this time in C. C is the
-perfect language for understanding how an implementation *really* works, all the
-way down to the bytes in memory and the code flowing through the CPU.
+Итак, в следующей части мы начнем все с начала, но на этот раз на C. C - это
+прекрасный язык для понимания как *действительно* работают реализации, на всем
+пути вниз до байтов в памяти и кода, протекающего через CPU.
 
-A big reason that we're using C is so I can show you things C is particularly
-good at, but that *does* mean you'll need to be pretty handy with it. You don't
-have to be the reincarnation of Dennis Ritchie, but you shouldn't be spooked by
-pointers either.
+Одна из основных причин использвания C - это то, что я покажу вам вещи, в
+которых C действительно хорош, но это *значит*, что вам необходимо довольно
+ловко обращаться с ним. Вам не нужно быть реинкарнацией Денниса Ритчи, но и
+указатели не должны вас пугать.
 
-If you aren't there yet, pick up an introductory book on C and chew through it,
-then come back here when you're done. In return, you'll come away from this book
-an even stronger C programmer. That's useful given how many language
-implementations are written in C: Lua, CPython, and Ruby's MRI, to name a few.
+Если вы еще не настолько хорошо знаете С, приобретите вводную книгу и прочитайте
+её, после чего возвращайтесь. Взамен, к концу этой книги вы будете еще и более
+сильным программистом на C. Это пойдет вам на пользу, учитвая сколько реализаций
+написаны на C, как-то: Lua, CPython и Ruby MRI и т. д.
 
-In our C interpreter, <span name="clox">clox</span>, we are forced to implement
-for ourselves all the things Java gave us for free. We'll write our own dynamic
-array and hash table. We'll decide how objects are represented in memory, and
-build a garbage collector to reclaim it.
+В нашем интерпретаторе на C, под названием <span name="clox">clox</span>, мы
+вынуждены реализовать для себя все те вещи, которые Java давала нам бесплатно.
+Мы напишем наши собственные динамические массивы и хэш таблицы. Мы решим, как
+объекты будут расположены в памяти и построим собственный сборщик мусора.
 
 <aside name="clox">
 
-I pronounce the name like "sea-locks", but you can say it "clocks" or even
-"clochs", where you pronounce the "x" like the Greeks do if it makes you happy.
+Я произношу название как "си-локс", но вы можете говорить "клокс", или даже 
+"клохс", произнося "x" по-гречески, если вам угодно.
 
 </aside>
 
-Our Java implementation was focused on being correct. Now that we have that
-down, we'll turn to also being *fast*. Our C interpreter will contain a <span
-name="compiler">compiler</span> that translates the code to an efficient
-bytecode representation (don't worry, I'll get into what that means soon) which
-it then executes. This is the same technique used by implementations of Lua,
-Python, Ruby, PHP and many other successful languages.
+Наша реализация на Java фокусировалась на корректности. Теперь, когда мы
+опустились так низко, мы сосредоточимся на *скорости*. Наш интерпретатор на C
+будет содержать <span name="compiler">компилятор</span>, который транслирует
+код в эффективное байт-код представление (не волнуйтесь, я скоро объясню, что
+это значит), который он затем будет исполнять. Эта же техника используется в
+реализациях Lua, Python, Ruby, PHP и многих других успешных языков.
 
 <aside name="compiler">
 
-Did you think this was just an interpreters book? It's a compiler book as well.
-Two for the price of one!
+Вы думали это книга только о интерпретаторах? А она еще и о компиляторах. Два
+по цене одного!
 
 </aside>
 
-We'll even try our hand at benchmarking and optimization. By the end we'll have
-a robust, accurate, fast interpreter for our language, able to keep up with
-other professional caliber implementations out there. Not bad for one book and a
-few thousand lines of code.
+Мы также попробуем своими руками провести тесты производительности и
+оптимизации. К концу мы получим крепкий, точный, быстрый интерпретатор для
+нашего языка, способный конкурировать с другими профессиональными реализациями.
+Неплохо для одной книги и нескольких тысяч строк кода.
 
 <div class="challenges">
 
-## Challenges
+## Задачи
 
-1. There are least six domain-specific languages used in the [little system I
-   cobbled together][repo] to write and publish this book. What are they?
+1. Есть по крайней мере шесть предметно-ориентированных языков, используемых в 
+   [маленькой системе, которую я сколотил][repo], чтобы написать и опубликовать
+   эту книгу. Какие?
 
-1. Get a "Hello, world!" program written and running in Java. Set up whatever
-   Makefiles or IDE projects you need to get it working. If you have a debugger,
-   get comfortable with it and step through your program as it runs.
+1. Возьмите программу "Hello, world!", написанную на Java. Настройте Makefile
+   или проект в IDE, чтобы она заработала. Если у вас есть отладчик, освойтесь с
+   ним и пошагайте в нем по вашей программе.
 
-1. Do the same thing for C. To get some practice with pointers, define a
-   [doubly-linked list][] of heap-allocated strings. Write functions to insert,
-   find, and delete items from it. Test them.
+1. Сделайте тоже самое для C. Чтобы попрактивоваться с указателями, определите
+   [двусвязный список][] динамически выделяемых строк. Напишите для него функции
+   вставки, поиска и удаления элементов. Протестируйте их.
 
 [repo]: https://github.com/munificent/craftinginterpreters
 [doubly-linked list]: https://en.wikipedia.org/wiki/Doubly_linked_list
@@ -463,35 +466,38 @@ few thousand lines of code.
 
 <div class="design-note">
 
-## Design Note: What's in a Name?
+## Рабочая заметка: что такого с именем?
 
-One of the hardest challenges in writing this book was coming up with a name for
-the language it implements. I went through *pages* of candidates before I found
-one that worked. As you'll discover on the first day you start building your own
-language, naming is deviously hard. A good name satisfies a few criteria:
+Одним из сложнейших испытаний в процессе написания этой книги было разобраться с
+именем языка, который здесь реализуется. Я перепробовал целые *страницы*
+кандидатов, прежде чем нашел тот, который подходит. Как вы увидите в первый день
+разработки собственного языка, именование на удивление тяжело. Хорошее имя
+должно удовлетворять следующим критериям:
 
-1. **It isn't in use.** You can run into all sorts of trouble, legal and social,
-   if you inadvertently step on someone else's name.
+1. **Оно еще никем не используется.** У вас могут быть проблемы, юридические или
+   социальные, если вы ненароком наткнетесь на чье-то чужое имя.
 
-2. **It's easy to pronounce.** If things go well, hordes of people will be
-   saying and writing your language's name. Anything longer than a couple of
-   syllables or a handful of letters will annoy them to no end.
+2. **Оно имеет простое произношение.** Если дело пойдет хорошо, полчища людей
+   будут произносить и писать имя вашего языка. Что-то большее, чем несколько
+   слогов или букв будет постоянно их бесить.
 
-3. **It's distinct enough to search for.** People will Google your language's
-   name to find docs for it, so you want a word that's rare enough that most
-   results point to your docs. Though, with the amount of AI most search engines
-   are packing today, that's less of an issue. Still, you won't be doing your
-   users any favors if you name your language "for".
+3. **Оно достаточно уникальное, для поиска.** Люди будут гуглить название вашего
+   языка, чтобы найти его документацию, так что вам нужно слово, достаточно
+   редкое для того, чтобы большинство результатов указывали на вашу
+   документацию. Хотя, с тем количеством искусственного интеллекта, которое
+   используется большинством поисковых движков сейчас, это не такая большая
+   проблема. Тем не менее, вы все равно не получите от ваших пользователей хоть
+   какой-то благодарности, если назовете свой язык "for".
 
-4. **It doesn't have negative connotations across a number of cultures.** This
-   is hard to guard for, but it's worth considering. The designer of Nimrod
-   ended up renaming his language to "Nim" because too many people only remember
-   that Bugs Bunny used "Nimrod" as an insult.
+4. **Оно не содержит негативных отсылок к каким-либо культурам.** От этого
+   тяжело защититься, но лучше это учесть. Разработчик языка Nimrod в итоге
+   сократил название до "Nim", потому что слишком многие люди помнят, как Багз
+   Банни использовал слово "Nimrod" как оскорбление.
 
-If your potential name makes it through that gauntlet, keep it. Don't get hung
-up on trying to find an appellation that captures the quintessence of your
-language. If the names of the world's other successful languages teach us
-anything, it's that the name doesn't matter much. All you need is a reasonably
-unique token.
+Если потенциальное имя удовлетворяет этим пунктам, берите его. Не зацикливайтесь
+на поиске названия, которое охватывает всю суть вашего языка. Если названия
+наиболее популярных языков мира нас чему-то и научили, так это тому, что
+название не значит почти ничего. Все, что вам нужно - это достаточно уникальное
+обозначение.
 
 </div>
