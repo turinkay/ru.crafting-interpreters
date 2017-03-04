@@ -1,6 +1,6 @@
 ^title A Tree-Walk Interpreter
 
-With this part, we begin jlox, the first of our two interpreters. Programming
+В этой части, we begin jlox, the first of our two interpreters. Programming
 languages are a huge topic with piles of concepts and terminology to cram into
 your brain all at once. There's theory -- though not too much in this book --
 which requires a level of mental rigor that you probably haven't had to summon
